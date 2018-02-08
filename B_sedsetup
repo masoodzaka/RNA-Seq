@@ -1,0 +1,12 @@
+#!/bin/sh
+#$ -N setup
+#### Use this script to set the user variables in all scripts in the directory.  It is important you copy the origianl scripts into a new directory 
+#### Update /AAA/PIInitials/ with the first part of your home directory i.e /user/\home\/nlp71\/WORKING_DATA\/NICR_RNAseq\/rna_seq\/test_data\/fastqs\/scripts/
+for fn in `ls *.sh`;
+do
+        sed "s/user/\home\/nmz33\/WORKING_DATA\/RNAseq/\FASTQ/g" ${fn} > t${fn}
+		mv t$fn $fn
+        chmod 744 $fn
+done
+
+
